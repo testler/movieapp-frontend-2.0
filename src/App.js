@@ -1,15 +1,20 @@
-import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import "./App.css";
+import { Canvas, useFrame } from '@react-three/fiber'
 
-class App extends Component {
-  render() {
-    return (
-      <div className="App">
-        
-      </div>
-    );
-  }
+
+function App() {
+  return (
+    <div id="canvas-container">
+      <Canvas>
+        <mesh>
+          <boxGeometry args={[2, 2, 2]} />
+          <meshStandardMaterial />
+        </mesh>
+        <ambientLight />
+      </Canvas>
+    </div>
+  );
 }
 
 export default App;
