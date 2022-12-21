@@ -1,12 +1,13 @@
 {
-  "name": "movie-app",
+  "name": "movie-app-frontend2.0",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@react-three/fiber": "^8.9.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "react-modal": "^3.15.1",
-    "react-scripts": "0.9.5"
+    "react-scripts": "0.9.5",
+    "three": "^0.147.0"
   },
   "scripts": {
     "start": "react-scripts start",
