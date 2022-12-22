@@ -1,0 +1,67 @@
+div#LandingPage{
+    text-align: center;
+    height: 100vh;
+    background-color: black;
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+}
+div#LandingPage > h1{
+    color: white;
+    padding-top: 25vh;
+    display: block;
+    animation: fade-in 5s 1.5s;
+    opacity: 0;
+    animation-fill-mode: forwards;
+}
+div#LandingPage > h4{
+    color: white;
+    margin: 15vh auto;
+    display:block;
+    animation: fade-in 5s 3s;
+    opacity: 0;
+    animation-fill-mode: forwards;
+}
+@keyframes fade-in {
+    from{
+        opacity: 0;
+    }
+    to{
+        opacity: 100;
+    }
+}
+button{
+    border-radius: 50px;
+    color: white;
+    display: block;
+    padding: 10px;
+    height: 10vh;
+    width: 25vh;
+    animation: fade-in 5s 6s;
+    opacity: 0;
+    animation-fill-mode: forwards;
+}
+button.left{
+    background-color: red;
+    float: left;
+    margin-left: 25vw;
+}
+button.right{
+    background-color: blue;
+    float: right;
+    margin-right: 25vw;
+}
+@media screen and (max-width: 500px){
+    div#LandingPage > h1{
+        margin-top: 5vh;
+    }
+    button.left{
+        background-color: red;
+        float: left;
+        margin-left: 1vw;
+    }
+    button.right{
+        background-color: blue;
+        float: right;
+        margin-right: 1vw;
+    }
+}
