@@ -18,29 +18,32 @@
 </head>
 
 <body>
-  <div class="loader active">
+  <div class="loader">
     <div class="screen"></div>
     <div class="lines"></div>
     <div class="number"></div>
   </div>
+
+  
+  <noscript>
+    You need to enable JavaScript to run this app.
+  </noscript>
+  <div id="root" class="inactive"></div>
   <script>
     const number = document.getElementsByClassName("number")[0];
-    const countdown = 9;
+    const countdown = 30;
     let counter = countdown;
     number.innerHTML = counter;
     setInterval(() => {
       counter--;
       number.innerHTML = counter;
-      if (counter === 1) {
-        counter = countdown + 1;
+      if (counter === 0) {
+        document.getElementById("root").classList.remove("inactive");
+        document.getElementsByClassName("loader")[0].remove();
       }
     }, 1000);
+    window.addEventListener("load",()=>{counter = 3;});
   </script>
-  
-  <noscript>
-    You need to enable JavaScript to run this app.
-  </noscript>
-  <div id="root"></div>
   <!--
       This HTML file is a template.
       If you open it directly in the browser, you will see an empty page.

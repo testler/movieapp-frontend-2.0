@@ -5,7 +5,9 @@
   padding: 0;
   border: 0;
 }
-
+.inactive{
+  display: none;
+}
 div.loader {
   display: flex;
   justify-content: center;
