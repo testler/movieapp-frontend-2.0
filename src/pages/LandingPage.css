@@ -2,6 +2,11 @@ div#LandingPage{
     text-align: center;
     height: 100vh;
     background-color: black;
+    animation: black-to-background 5s;
+    animation-fill-mode: forwards;
+    background-image: url("./black-texture.jpg");
+    background-repeat: repeat;
+    background-size: cover;
     margin: 0;
     font-family: Arial, Helvetica, sans-serif;
 }
@@ -9,7 +14,7 @@ div#LandingPage > h1{
     color: white;
     padding-top: 25vh;
     display: block;
-    animation: fade-in 5s 1.5s;
+    animation: fade-in 5s 3.5s;
     opacity: 0;
     animation-fill-mode: forwards;
 }
@@ -17,10 +22,18 @@ div#LandingPage > h4{
     color: white;
     margin: 15vh auto;
     display:block;
-    animation: fade-in 5s 3s;
+    animation: fade-in 5s 5s;
     opacity: 0;
     animation-fill-mode: forwards;
 }
+@keyframes black-to-background {
+    from{
+        filter: blur(20px);
+    }
+    to{
+        filter: blur(0.5px);
+    }
+}   
 @keyframes fade-in {
     from{
         opacity: 0;
@@ -36,7 +49,7 @@ button{
     padding: 10px;
     height: 10vh;
     width: 25vh;
-    animation: fade-in 5s 6s;
+    animation: fade-in 5s 8s;
     opacity: 0;
     animation-fill-mode: forwards;
 }
