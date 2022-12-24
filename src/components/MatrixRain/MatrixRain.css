@@ -1,0 +1,60 @@
+ul{
+    position:absolute;
+    z-index: 10;
+    list-style: none;
+    width: fit-content;
+    left: 25;
+    padding: 0;
+    margin: 0;
+    border: 0;
+    height: 100%;
+}
+li{
+    color: greenyellow;
+    width: 100%;
+    height: 3.95%;
+    text-align: center;
+    font-size: 2vh;
+    font-family: 'Michroma', sans-serif;
+    padding: 0;
+    margin: 0;
+    border: 0;
+}
+li.inactive{
+    display: none;
+}
+li.animation{
+    animation: new-char 1s linear 0s 1 normal forwards;
+}
+@keyframes new-char {
+    0%{
+        color: white;
+        scale: 1.1;
+        opacity: 100;
+    }
+    20%{
+        color: green;
+        scale: 1.05;
+        opacity: 100;
+    }
+    40%{
+        color: green;
+        scale: 1;
+        opacity: 75;
+    }
+    60%{
+        color: green;
+        scale: 1;
+        opacity: 50;
+    }
+    80%{
+        color: green;
+        scale: 1;
+        opacity: 25;
+    }
+    100%{
+        color: green;
+        scale: 1;
+        opacity: 0;
+    }
+}

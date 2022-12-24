@@ -31,18 +31,26 @@
   <div id="root" class="inactive"></div>
   <script>
     const number = document.getElementsByClassName("number")[0];
-    const countdown = 30;
+    const countdown = 10;
     let counter = countdown;
     number.innerHTML = counter;
-    setInterval(() => {
-      counter--;
+    let step = 1;
+    let countInt = setInterval(() => {
+      counter = counter-step;
       number.innerHTML = counter;
-      if (counter === 0) {
+      if (counter < 1) {
         document.getElementById("root").classList.remove("inactive");
         document.getElementsByClassName("loader")[0].remove();
+        clearInterval(countInt);
       }
     }, 1000);
-    window.addEventListener("load",()=>{counter = 3;});
+    window.addEventListener("load",()=>{
+      if(counter % 2 == 0){
+        step = 2;
+      }else if(counter % 3 == 0){
+        step = 3;
+      }
+    });
   </script>
   <!--
       This HTML file is a template.
