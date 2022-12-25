@@ -2,6 +2,7 @@ import React from 'react'
 import "./FullscreenMatrixRain.css"
 import { useState, useEffect } from 'react';
 import MatrixRain from '../MatrixRain/MatrixRain';
+
 export const FullscreenMatrixRain = () => {
     const [rain, setRain] = useState([]);
     useEffect(fullScreenRain,[])
