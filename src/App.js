@@ -1,16 +1,27 @@
 import React from "react";
 import "./App.css";
-import { Canvas, useFrame } from '@react-three/fiber'
-import { OrbitControls } from '@react-three/drei'
 import LandingPage from "./pages/landing/LandingPage.jsx";
+import ErrorPage from "./pages/error/ErrorPage";
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import { FullscreenMatrixRain } from "./components/FullscreenMatrixRain/FullscreenMatrixRain";
 
 
 function App() {
+  const router = createBrowserRouter([
+    {
+      path: "/",
+      element: <LandingPage />,
+      errorElement: <ErrorPage />,
+    },
+    {
+      path: "/home",
+      element: <FullscreenMatrixRain />,
+      errorElement: <ErrorPage />,
+    },
+  ]);
   return (
     <div id="app">
-      {/* <Canvas>
-      </Canvas> */}
-      <LandingPage/>
+      <RouterProvider router={router} />
     </div>
   );
 }
