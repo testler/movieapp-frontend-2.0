@@ -2,27 +2,20 @@ import React from "react";
 import "./App.css";
 import LandingPage from "./pages/landing/LandingPage.jsx";
 import ErrorPage from "./pages/error/ErrorPage";
-import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import { FullscreenMatrixRain } from "./components/FullscreenMatrixRain/FullscreenMatrixRain";
-
+import { createBrowserRouter, Route, RouterProvider, Routes } from "react-router-dom";
+import { FullscreenMatrixRain } from "./pages/loaders/FullscreenMatrixRain/FullscreenMatrixRain";
+import MainPage from "./pages/main/MainPage.jsx"
+import FilmLeader from "./pages/loaders/FilmLeader/FilmLeader";
 
 function App() {
-  const router = createBrowserRouter([
-    {
-      path: "/",
-      element: <LandingPage />,
-      errorElement: <ErrorPage />,
-    },
-    {
-      path: "/home",
-      element: <FullscreenMatrixRain />,
-      errorElement: <ErrorPage />,
-    },
-  ]);
   return (
-    <div id="app">
-      <RouterProvider router={router} />
-    </div>
+      <Routes>
+        <Route path="/" element={<FilmLeader/>}/>
+        <Route path="/landingPage" element={<LandingPage/>}/>
+        <Route path="/homeLoader" element={<FullscreenMatrixRain/>}/>
+        <Route path="/home" element={<MainPage/>}/>
+        <Route path="*" element={<ErrorPage/>}/>
+      </Routes>
   );
 }
 

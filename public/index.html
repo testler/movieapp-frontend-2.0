@@ -16,42 +16,11 @@
     -->
   <title>The Movie App</title>
 </head>
-
 <body>
-  <div class="loader">
-    <div class="screen"></div>
-    <div class="lines"></div>
-    <div class="number"></div>
-  </div>
-
-  
   <noscript>
     You need to enable JavaScript to run this app.
   </noscript>
-  <div id="root" class="inactive"></div>
-  <script>
-    const number = document.getElementsByClassName("number")[0];
-    const countdown = 10;
-    let counter = countdown;
-    number.innerHTML = counter;
-    let step = 1;
-    let countInt = setInterval(() => {
-      counter = counter-step;
-      number.innerHTML = counter;
-      if (counter < 1) {
-        document.getElementById("root").classList.remove("inactive");
-        document.getElementsByClassName("loader")[0].remove();
-        clearInterval(countInt);
-      }
-    }, 1000);
-    window.addEventListener("load",()=>{
-      if(counter % 2 == 0){
-        step = 2;
-      }else if(counter % 3 == 0){
-        step = 3;
-      }
-    });
-  </script>
+  <div id="root"></div>
   <!--
       This HTML file is a template.
       If you open it directly in the browser, you will see an empty page.

@@ -2,15 +2,15 @@ import React, { useState } from 'react'
 import { useEffect } from 'react'
 import "./MatrixRain.css"
 
-const MatrixRain = ({ position }) => {
+const MatrixRain = ({ position, delay }) => {
   const [numberOfChars, setNumberOfChars] = useState(25);
   useEffect(() => {
     createChars();
   }, []);
   function createChars() {
     let ul = document.getElementById("matrix-rain" + position);
-    if (position === -1) {
-      ul.style.left = (Math.random() * 100) + "vw";
+    if (!position) {
+      ul.style.left = (Math.random() * 95) + "vw";
     } else {
       ul.style.left = position + "vw";
     }
@@ -21,7 +21,7 @@ const MatrixRain = ({ position }) => {
       element.classList.add("inactive");
       ul.appendChild(element);
     }
-    setTimeout(makeItRain, ((Math.random() * 5000) + 5000), ul);
+    setTimeout(makeItRain, ((Math.random() * 3000) + (delay ? delay : 0)), ul);
   }
   function showAndStartAnimation(i, ul) {
     ul.childNodes[i].classList.remove("inactive");
@@ -29,7 +29,7 @@ const MatrixRain = ({ position }) => {
   }
   function makeItRain(ul) {
     for (let i = 0; i < ul.childElementCount; i++) {
-      setTimeout(showAndStartAnimation, 100 * i + 1, i, ul);
+      setTimeout(showAndStartAnimation, 100 * (i + 1), i, ul);
     }
   }
 
