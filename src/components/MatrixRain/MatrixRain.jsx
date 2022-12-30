@@ -1,41 +1,45 @@
-import React, { useState } from 'react'
-import { useEffect } from 'react'
-import "./MatrixRain.css"
+import React, { useState,useRef, useEffect } from 'react';
+import "./MatrixRain.css";
 
 const MatrixRain = ({ position, delay }) => {
-  const [numberOfChars, setNumberOfChars] = useState(25);
+  const numberOfChars = 23;
+  const [chars, setChars] = useState(["", "", "","", "", "","", "", "","", "", "","", "", "","", "", "","", "", "","", "", ""]);
+  const [visibleArr, setVisibleArr] = useState([false, false, false,false, false, false,false, false, false,false, false, false, false, false, false,false, false, false,false, false, false,false, false, false]);
+  const ul = useRef();
   useEffect(() => {
+    ul.current.style.left = position ? position + "vw" : (Math.random() * 95) + "vw";
     createChars();
+    setTimeout(makeItRain, (delay === "random" ? Math.random()* 4500 : 0));
   }, []);
-  function createChars() {
-    let ul = document.getElementById("matrix-rain" + position);
-    if (!position) {
-      ul.style.left = (Math.random() * 95) + "vw";
-    } else {
-      ul.style.left = position + "vw";
-    }
-    let characters = ["ァ", "ア", "イ", "ゥ", "ィ", "ウ", "ェ", "エ", "ォ", "オ", "ガ", "カ", "ギ", "ク", "グ", "ケ", "キ", "ゲ", "コ", "ゴ", "ザ", "シ", "ジ", "ス", "ズ", "セ", "ソ", "ゾ", "タ", "ダ", "チ", "ヂ", "ツ", "ヅ", "テ", "デ", "ト", "ド", "ナ", "ニ", "ヌ", "ネ", "ノ", "バ", "パ", "ビ", "ピ", "フ", "ブ", "プ", "ヘ", "ベ", "ペ", "ホ", "ボ", "ポ", "マ", "ミ", "ム", "メ", "モ", "ャ", "ヤ", "ュ", "ユ", "ョ", "ヨ", "ラ", "リ", "ル", "レ", "ロ", "ヮ", "ワ", "ヰ", "ヱ", "ヲ", "ン", "ヴ", "ヵ", "ヶ", "ヷ", "ヸ", "ヹ", "ヺ", "ヾ", "ヿ", "サ", "ゼ", "ッ", "ハ", "ヒ", "A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "O", "N", "M", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z", "1", "2", "3", "4", "5", "6", "7", "8", "9"];
-    for (let counter = numberOfChars; counter > 0; counter--) {
-      let element = document.createElement("li");
-      element.innerHTML = characters[Math.floor(Math.random() * characters.length)];
-      element.classList.add("inactive");
-      ul.appendChild(element);
-    }
-    setTimeout(makeItRain, ((Math.random() * 3000) + (delay ? delay : 0)), ul);
-  }
-  function showAndStartAnimation(i, ul) {
-    ul.childNodes[i].classList.remove("inactive");
-    ul.childNodes[i].classList.add("animation");
-  }
-  function makeItRain(ul) {
-    for (let i = 0; i < ul.childElementCount; i++) {
-      setTimeout(showAndStartAnimation, 100 * (i + 1), i, ul);
-    }
-  }
 
+  function createChars() {
+    let characters = ["ァ", "ア", "イ", "ゥ", "ィ", "ウ", "ェ", "エ", "ォ", "オ", "ガ", "カ", "ギ", "ク", "グ", "ケ", "キ", "ゲ", "コ", "ゴ", "ザ", "シ", "ジ", "ス", "ズ", "セ", "ソ", "ゾ", "タ", "ダ", "チ", "ヂ", "ツ", "ヅ", "テ", "デ", "ト", "ド", "ナ", "ニ", "ヌ", "ネ", "ノ", "バ", "パ", "ビ", "ピ", "フ", "ブ", "プ", "ヘ", "ベ", "ペ", "ホ", "ボ", "ポ", "マ", "ミ", "ム", "メ", "モ", "ャ", "ヤ", "ュ", "ユ", "ョ", "ヨ", "ラ", "リ", "ル", "レ", "ロ", "ヮ", "ワ", "ヰ", "ヱ", "ヲ", "ン", "ヴ", "ヵ", "ヶ", "ヷ", "ヸ", "ヹ", "ヺ", "ヾ", "ヿ", "サ", "ゼ", "ッ", "ハ", "ヒ", "1", "2", "3", "4", "5", "6", "7", "8", "9"];
+    let newChars = [];
+    let newVisibleArr = [];
+    for (let counter = 0; counter < numberOfChars; counter++) {
+      const newChar = characters[Math.floor(Math.random() * characters.length)];
+      newChars.push(newChar);
+      newVisibleArr.push(false);
+    }
+    setChars(newChars);
+    setVisibleArr(newVisibleArr);
+
+  }
+  function makeItRain() {
+    for (let i = 0; i < numberOfChars; i++) {
+      setTimeout(() => {
+        const newVisibleArr = visibleArr.map((value, index) => (index <= i ? true : false));
+        setVisibleArr(newVisibleArr);
+      }, 100 * (i + 1), i);
+    }
+  }
+const list = chars.map((char, i) => {
+return <li key={i} className={visibleArr[i] ? "animation" : "inactive"}>{char}</li>}
+);
 
   return (
-    <ul id={"matrix-rain" + position}>
+    <ul id={"matrix-rain"} ref={ul} >
+      {list}
     </ul>
   )
 }

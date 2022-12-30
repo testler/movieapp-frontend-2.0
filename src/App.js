@@ -6,6 +6,7 @@ import { createBrowserRouter, Route, RouterProvider, Routes } from "react-router
 import { FullscreenMatrixRain } from "./pages/loaders/FullscreenMatrixRain/FullscreenMatrixRain";
 import MainPage from "./pages/main/MainPage.jsx"
 import FilmLeader from "./pages/loaders/FilmLeader/FilmLeader";
+import MatrixRain from "./components/MatrixRain/MatrixRain";
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
         <Route path="/landingPage" element={<LandingPage/>}/>
         <Route path="/homeLoader" element={<FullscreenMatrixRain/>}/>
         <Route path="/home" element={<MainPage/>}/>
+        <Route path="/testbed" element={<MatrixRain/>}/>
         <Route path="*" element={<ErrorPage/>}/>
       </Routes>
   );

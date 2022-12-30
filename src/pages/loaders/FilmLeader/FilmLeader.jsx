@@ -1,6 +1,6 @@
 import React from 'react';
 import "./FilmLeader.css";
-import { useEffect, useState } from 'react';
+import {  useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 const FilmLeader = () => {
@@ -8,7 +8,6 @@ const FilmLeader = () => {
     const navigate = useNavigate();
     const [counter, setCounter] = useState(3);
 
-    useEffect(startCountDown, [counter]);
     function nextPage() 
     {
         navigate("/landingPage");
@@ -19,6 +18,7 @@ const FilmLeader = () => {
         }, 1000);
 
     }
+    startCountDown();
     return (
         <div className="loader">
             <div className="screen"></div>
