@@ -21,7 +21,7 @@ const MainPage = () => {
         <div onClick={()=>{setHbomaxActive(!hbomaxActive)}} className={hbomaxActive ? ".active-thumnail" : ".inactive-thumbnail"}><img src='./assets/hbomax.jpg' /><h5>HBO Max</h5></div>
         <div onClick={()=>{setHuluActive(!huluActive)}} className={huluActive ? ".active-thumnail" : ".inactive-thumbnail"}><img src='./assets/hulu.jpg' /><h5>Hulu</h5></div>
         <div onClick={()=>{setPeacockActive(!peacockActive)}} className={peacockActive ? ".active-thumnail" : ".inactive-thumbnail"}><img src='./assets/peacock.jpeg' /><h5>Peacock</h5></div>
-        <div onClick={()=>{setParamountActive(!paramountActive)}} className={paramountActive ? ".active-thumnail" : ".inactive-thumbnail"}><img src='./assets/paramountplus.webp' /><h5>Paramount+</h5></div>
+        <div onClick={()=>{setParamountActive(!paramountActive)}} className={paramountActive ? ".active-thumnail" : ".inactive-thumbnail"}><img src='./assets/paramount-plus.jpg' /><h5>Paramount+</h5></div>
         <div onClick={()=>{setStarzActive(!starzActive)}} className={starzActive ? ".active-thumnail" : ".inactive-thumbnail"}><img src='./assets/starz.webp' /><h5>Starz</h5></div>
         <div onClick={()=>{setShowtimeActive(!showtimeActive)}} className={showtimeActive ? ".active-thumnail" : ".inactive-thumbnail"}><img src='./assets/showtime.jpeg' /><h5>Showtime</h5></div>
         <div onClick={()=>{setAppletvActive(!appletvActive)}} className={appletvActive ? ".active-thumnail" : ".inactive-thumbnail"}><img src='./assets/appletv.webp' /><h5>Apple TV+</h5></div>

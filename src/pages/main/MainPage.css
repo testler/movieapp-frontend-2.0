@@ -1,0 +1,21 @@
+div#selection-grid{
+    display: flex;
+}
+div#selection-grid > div{
+    text-align: center;
+    width: 20%;
+    margin: 2%;
+}
+
+div#selection-grid > div > img{
+    width: 80%;
+    height: auto;
+    border-radius: 10px;
+    border-radius: clamp(5px, 50px, 500px);
+}
+div.active-thumnail{
+    /* normal */
+}
+div.inactive-thumnail{
+    /* greyed out */
+}
