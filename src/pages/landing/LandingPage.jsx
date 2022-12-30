@@ -13,7 +13,7 @@ const LandingPage = () => {
   },5000)
   setInterval(() => 
   {
-    setMatrixDrop(<div />);inactive
+    setMatrixDrop(<div />);
   }, 10000);}, []);
   return (
     <div id="LandingPage">
