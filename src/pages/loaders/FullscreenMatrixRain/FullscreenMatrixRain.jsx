@@ -17,7 +17,7 @@ export const FullscreenMatrixRain = () => {
         setRain(rain.concat(arr));
         }
     }
-    setTimeout(()=>{navigate("/home")},5000);
+    setTimeout(()=>{navigate("/home", {replace:true})},5000);
     const allRain = rain.map((num) => {
         return <MatrixRain position={num} key={num} delay="random"/>
     });

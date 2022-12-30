@@ -7,6 +7,7 @@ import { FullscreenMatrixRain } from "./pages/loaders/FullscreenMatrixRain/Fulls
 import MainPage from "./pages/main/MainPage.jsx"
 import FilmLeader from "./pages/loaders/FilmLeader/FilmLeader";
 import MatrixRain from "./components/MatrixRain/MatrixRain";
+import Credentials from "./pages/credentials/Credentials";
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
         <Route path="/homeLoader" element={<FullscreenMatrixRain/>}/>
         <Route path="/home" element={<MainPage/>}/>
         <Route path="/testbed" element={<MatrixRain/>}/>
+        <Route path="/credentials" element={<Credentials />}/>
         <Route path="*" element={<ErrorPage/>}/>
       </Routes>
   );

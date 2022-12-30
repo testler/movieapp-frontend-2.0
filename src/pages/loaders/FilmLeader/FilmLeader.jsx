@@ -10,7 +10,7 @@ const FilmLeader = () => {
 
     function nextPage() 
     {
-        navigate("/landingPage");
+        navigate("/landingPage", {replace:true});
     }
     function startCountDown() {
         setInterval(() => {
